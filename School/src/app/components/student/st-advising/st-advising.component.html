@@ -1,0 +1,12 @@
+
+<div class="form-group row">
+    <label class="control-label col-md-4">Subject: </label>
+    <div class="col-md-6">
+        <select name="StudentSubject" [(ngModel)]="stService.student.SubjectsId" class="form-control" placeholder="Enter Your Address" NgModel>
+            <option value="">---Select---</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <app-subject-form-components></app-subject-form-components>
+    </div> 
+</div>

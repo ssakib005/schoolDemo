@@ -1,0 +1,56 @@
+<div class="row" >
+  <div class="col-md-6 col-md-offset-3" style="border: 1px solid white; padding: 30px">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+          <div class="row">
+              <label class="control-label col-md-offset-3" style="padding-bottom:20px"><h4 style="font-family: Arial; font-weight:bold">Student Registration Form</h4></label>
+          </div>
+          <div class="form-group row">
+                  <label class="control-label col-md-4">Department: </label>
+                  <div class="col-md-6">
+                      <select name="DepartmentId" [(ngModel)]="stService.student.DepartmentId" class="form-control" placeholder="Enter Your Address" NgModel>
+                        <option *ngFor="let dep of departemnts" [ngValue]="dep.Id">{{ dep.Name }}</option>
+                      </select>
+                  </div>
+              <div class="col-md-2">
+                  <app-department-form-components></app-department-form-components>
+              </div>      
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-md-4">Name: </label>
+              <div class="col-md-6">
+                  <input type="text" name="Name" [(ngModel)]="stService.student.Name" class="form-control" placeholder="Enter Your Name" NgModel>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-md-4">Registration Number: </label>
+              <div class="col-md-6">
+                  <input type="text"  name="RegNo" [(ngModel)]="stService.student.RegNo" class="form-control" placeholder="Enter Your Registration Number" NgModel>
+              </div>
+          </div>
+          <div class="form-group row">
+                  <label class="control-label col-md-4">Contact Number: </label>
+                  <div class="col-md-6">
+                      <input type="text" name="Contact" [(ngModel)]="stService.student.Contact" class="form-control" placeholder="Enter Your Contact Number" NgModel>
+                  </div>
+              </div>
+          <div class="form-group row">
+              <label class="control-label col-md-4">Email: </label>
+              <div class="col-md-6">
+                  <input type="text" name="Email" [(ngModel)]="stService.student.Email" class="form-control" placeholder="Enter Your Email" NgModel>
+              </div>
+          </div>
+          <div class="form-group row">
+              <label class="control-label col-md-4">Address: </label>
+              <div class="col-md-6">
+                  <input type="text" name="Address" [(ngModel)]="stService.student.Address" class="form-control" placeholder="Enter Your Address" NgModel>
+                </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6 col-md-offset-4">
+                  <input type="submit" value="Save" class="btn btn-default">
+                  <button class="btn btn-danger" (click)="resetForm(f)" type="button">Reset</button> 
+              </div>
+          </div>
+      </form>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".departmentModal">
+    <i class="fa fa-plus"></i>
+  </button>
+  <div class="modal fade departmentModal" tabindex="-1" #departmentModal role="dialog" aria-labelledby="departmentModalLabel" aria-hidden="true">
+    <div class="modal-dialog lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title departmentModalLabel">Add Department</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #df="ngForm" (ngSubmit)="onSubmit(df)" novalidate>
+              <div class="form-group row">
+                <label class="control-label col-md-4">Department Name: </label>
+                <div class="col-md-6">
+                  <input type="text" [(ngModel)]="MyService.department.Name" name="Name" class="form-control" placeholder="Enter Department Name" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="control-label col-md-4">Department Code: </label>
+                <div class="col-md-6">
+                  <input type="text" [(ngModel)]="MyService.department.Code" name="Code" class="form-control" placeholder="Enter Department Code" required>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" (click)="(df)" class="btn btn-secondary" id="modal" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

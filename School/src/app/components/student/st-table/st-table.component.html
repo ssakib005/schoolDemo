@@ -1,0 +1,40 @@
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-1">
+    <table class="tablesaw table-bordered table-hover table">
+        <thead>
+            <tr>
+              <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Serial</th>
+              <th scope="col" data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="7">Name</th>
+              <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="6">Registration Number</th>
+              <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="5">Contact Number</th>
+              <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Email</th>
+              <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="3">Address</th>
+              <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Department</th>
+              <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Subject</th>
+              <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Update</th>
+              <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let student of studentsList; let index=index">
+                <td>{{ index + 1 }}</td>
+                <td>{{ student.Name }}</td>
+                <td>{{ student.RegNo }}</td>
+                <td>{{ student.Contact }}</td>
+                <td>{{ student.Email }}</td>
+                <td>{{ student.Address }}</td>
+                <td>{{ student.Department.Name }}</td>
+                <td>
+                  <tr *ngFor="let sub of student.Subjects; let index=index">
+                    <td scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">{{ index + 1 }}.</td>
+                    <td scope="col" data-tablesaw-sortable-col data-tablesaw-priority="1">{{ sub.Name }}</td>
+                  </tr>
+                </td>
+                <td style="width: 180px"><i class="fa fa-pencil btn btn-info" (click)="getStudentById(student.Id)"></i></td>
+                <td><i class="fa fa-trash btn btn-danger" (click)="deleteStudent(student.Id)"></i></td>
+            </tr>
+          </tbody>
+    </table>
+  </div>
+</div>
